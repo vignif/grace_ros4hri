@@ -24,50 +24,29 @@ python3 -m venv venv_grace
 source venv_grace/bin/activate
 ```
 
-Install dependencies of grace
+Install the dependency of grace
 ```bash
 pip install --upgrade pip
 wget https://github.com/vignif/grace/releases/download/v1.0.0/grace-1.0.0-py3-none-any.whl
 pip install grace-1.0.0-py3-none-any.whl
-pip install wheel empy catkin_pkg rospkg PySide2 numpy
-```
-
-Install dependencies of hri_face_detect
-```bash
-cd hri_face_detect
-python setup.py install
-pip install mediapipe
+pip install wheel empy catkin_pkg rospkg PySide2
 ```
 
 Build the ros package
+
 ```bash
 cd ~/ros_ws
 catkin build
 ```
 
 
-### How to run
+Expected command line output
+```log
+[INFO] [1666790152.570874]: Running GraceClientHRI
+[INFO] [1666790152.964636]: Ready. Waiting for images to be published on /camera/color/image_raw.
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+[INFO] [1666790154.203521]: Ready to compute mutual engagement
+[INFO] [1666790154.213704]: Reconfigure Request: 1.5, 0.5, 0.5
+[INFO] [1666790154.222032]: Running GraceServerHRI
 
-Source the recently build binaries
-
-```bash
-source ~/ros_ws/devel/setup.sh
-```
-
-Install the package to get stream from vision sensor (usb_cam or other)
-i.e. use webcam of your laptop
-
-```bash
-sudo apt-get install ros-noetic-usb-cam
-```
-
-Launch grace with:
-Param setting
-```bash
-which_cam:={usb_cam (default) | realsense}
-```
-
-Example
-```bash
-roslaunch grace_ros run_grace.launch which_cam:=realsense
 ```
