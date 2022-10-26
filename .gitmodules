@@ -1,3 +1,6 @@
 [submodule "grace_ros"]
 	path = grace_ros
 	url = git@github.com:vignif/grace_ros.git
+[submodule "hri_face_detect"]
+	path = hri_face_detect
+	url = git@github.com:ros4hri/hri_face_detect.git
